@@ -16,13 +16,13 @@ from Procedure.validators import _validate_procedure
  
  Author(s)   :      
  Version     : 1.0
- Last Update : 2013-07-27
+ Last Update : 2013-07-28
  Update by   : Matthew J Swann
  
 """
 
 
-#BLOCK: Procedure
+#TABLE: Procedure
 class Procedure(models.Model):
     """
      Representation of a singular sub-routine within a PE file.
@@ -55,7 +55,7 @@ class Procedure(models.Model):
         self.last_modified = datetime.now()
         super(Procedure, self).save(*args, **kwargs)
 
-
+    #SUB_BLOCK: Links to other Procedures
     def add_calling_function(self, procedure):
         """
         Adds a procedure object to the calling_functions table.
