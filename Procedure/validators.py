@@ -12,9 +12,9 @@
 
  Procedure/validators.py
  
- Author(s)   :      
+ Author(s)   : Matthew J Swann     
  Version     : 1.0
- Last Update : 2013-07-27
+ Last Update : 2013-07-30
  Update by   : Matthew J Swann
  
 """

@@ -11,19 +11,19 @@
 """
  Control/choice_lists.py
  
- Author(s)   :      
+ Author(s)   : Matthew J swann     
  Version     : 1.0
- Last Update : 2013-07-27
+ Last Update : 2013-07-30
  Update by   : Matthew J Swann
  
 """
 
-FUNCTION_DESIGNATIONS = (
+FUNCTIONAL_DESIGNATIONS = (
     ('A', 'data processing algorithm'),
     ('I', 'file/user i/o'),
     ('M', 'main/start'),
     ('N', 'network'),
-    ('S', 'internal support') 
+    ('S', 'internal support'), 
     ('V', 'validation'),
     ('U', 'unknown')
         )

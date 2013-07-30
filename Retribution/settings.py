@@ -125,6 +125,7 @@ INSTALLED_APPS = (
     
     # Internal Packages
     'Control',
+    'Data',
     'Procedure',
 )
 

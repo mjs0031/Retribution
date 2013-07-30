@@ -9,7 +9,7 @@ from django.test import TestCase
 
 
 """
- Procedure/tests.py
+ Data/tests.py
  
  Author(s)   : Matthew J Swann     
  Version     : 1.0
@@ -30,15 +30,15 @@ from django.test import TestCase
 class Test(TestCase):
     fixtures = [
                 #'Testing/fixtures/procedure_testdata.json',
-                #'Testing/fixtures/data_testdata.json',    
+                #'Testing/fixtures/data_testdata.json'   
                 ]
 
     """
      {
-      PROCEDURE
+      DATA
      }
-     """#BLOCK: Procedure
-    def test_procedure_00_00_00_get_x_y_z(self):
+     """#BLOCK: Data
+    def test_data_00_00_00_get_x_y_z(self):
         pass 
 
 
