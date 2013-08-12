@@ -76,7 +76,7 @@ class MetadataAdmin(admin.ModelAdmin):
             'fields' : ('component', 'encrypted', 'self_modifying', 'self_mod_contained_to_self', 
                         'encryption_type', 'last_modified')
                  }),)
-    
+
 
 class ProcedureAdmin(admin.ModelAdmin):
     list_display  = ('id', 'routine_id', 'routine_tag', 'topic', 'last_modified')
