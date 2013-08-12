@@ -126,6 +126,7 @@ INSTALLED_APPS = (
     # Internal Packages
     'Component',
     'Control',
+    'Project',
 )
 
 # A sample logging configuration. The only tangible logging

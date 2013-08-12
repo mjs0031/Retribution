@@ -13,7 +13,7 @@ from django.contrib import admin
  
  Author(s)   : Matthew J Swann     
  Version     : 1.0
- Last Update : 2013-08-06
+ Last Update : 2013-08-12
  Update by   : Matthew J Swann
  
  This code imports each database table from each internal support
@@ -102,3 +102,27 @@ admin.site.register(Export, ExportAdmin)
 admin.site.register(Import, ImportAdmin)
 admin.site.register(Metadata, MetadataAdmin)
 admin.site.register(Procedure, ProcedureAdmin)
+
+
+"""
+ {
+  Project
+ }
+ """#BLOCK: Project
+class ProjectAdmin(admin.ModelAdmin):
+    list_display  = ('id', 'project_name', 'initialization_date', 'last_modified')
+    search_fields = ['last_modified', ]
+    ordering      = ['last_modified', 'project_name']
+    fieldsets     = (               
+        ( 'Advanced options', {
+            'classes': ('wide', 'extrapretty'),
+            'fields' : ('project_name', 'initialization_date', 'last_modified')
+                 }),)
+    
+from Project.models import (
+                Project
+                    )
+
+admin.site.register(Project, ProjectAdmin)
+
+ 
