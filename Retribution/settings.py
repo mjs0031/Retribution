@@ -126,6 +126,7 @@ INSTALLED_APPS = (
     # Internal Packages
     'Component',
     'Control',
+    'Login_Registration',
     'Project',
 )
 

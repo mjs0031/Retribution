@@ -106,6 +106,30 @@ admin.site.register(Procedure, ProcedureAdmin)
 
 """
  {
+  LOGIN_REGISTRATION
+ }
+ """# BLOCK: Login_Registration
+class ProfileAdmin(admin.ModelAdmin):
+    list_display  = ('id', '__unicode__', 'user', 'city', 'state', 'is_registered')
+    list_filter   = ('is_registered', 'state')
+    search_fields = ('city', 'state') 
+    fieldsets     = (               
+        ( 'Advanced options', {
+            'classes': ('wide', 'extrapretty'),
+            'fields' : ('user', 'addressLineOne', 'addressLineTwo', 'city',
+                        'state', 'zipCode', 'phone', 'is_registered', 'activation_key', 
+                        'avatar', 'date_initialized'),
+                 }),)
+
+from Login_Registration.models import (
+                     Profile                   
+                        )
+
+admin.site.register(Profile, ProfileAdmin)
+
+
+"""
+ {
   Project
  }
  """#BLOCK: Project
