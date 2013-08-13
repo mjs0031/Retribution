@@ -9,6 +9,7 @@ from django.db.utils import IntegrityError
 """ Internal Support """
 from Control.choice_lists import FUNCTIONAL_DESIGNATIONS, SIZE_DESIGNATIONS
 from Component.validators import _validate_procedure
+from Login_Registration.models import Profile
 
 
 """
@@ -28,6 +29,9 @@ class Project(models.Model):
     
     Primary Keys naturally installed and maintained by Django.
     """
+    # Keyed Fields
+    profile             = models.ForeignKey(Profile, null=True, default=None)
+    # Natural Fields
     project_name        = models.CharField(max_length=64)
     initialization_date = models.DateField(default=date.today())
     last_modified       = models.DateTimeField(null=True, blank=True, verbose_name='Mod Date')
