@@ -123,9 +123,14 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     
+    # Third Party
+    'pytz',
+    
     # Internal Packages
     'Component',
     'Control',
+    'Login_Registration',
+    'Project',
 )
 
 # A sample logging configuration. The only tangible logging
