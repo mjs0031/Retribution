@@ -5,6 +5,7 @@ from datetime import datetime
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.utils import IntegrityError
+from django.utils.timezone import utc
 
 """ Internal Support """
 from Control.choice_lists import FUNCTIONAL_DESIGNATIONS, SIZE_DESIGNATIONS
@@ -53,7 +54,7 @@ class Data(models.Model):
         """
         Time tracks changes via save over-ride.
         """
-        self.last_modified = datetime.now()
+        self.last_modified = datetime.now().replace(tzinfo=utc)
         super(Data, self).save(*args, **kwargs)
         
 
@@ -105,7 +106,7 @@ class Export(models.Model):
         """
         Time tracks changes via save over-ride.
         """
-        self.last_modified = datetime.now()
+        self.last_modified = datetime.now().replace(tzinfo=utc)
         super(Export, self).save(*args, **kwargs)
     
 
@@ -135,7 +136,7 @@ class Import(models.Model):
         """
         Time tracks changes via save over-ride.
         """
-        self.last_modified = datetime.now()
+        self.last_modified = datetime.now().replace(tzinfo=utc)
         super(Import, self).save(*args, **kwargs)
 
 
@@ -168,7 +169,7 @@ class Metadata(models.Model):
         """
         Time tracks changes via save over-ride.
         """
-        self.last_modified = datetime.now()
+        self.last_modified = datetime.now().replace(tzinfo=utc)
         super(Metadata, self).save(*args, **kwargs)
 
 
@@ -209,7 +210,7 @@ class Procedure(models.Model):
         """
         Time tracks changes via save over-ride.
         """
-        self.last_modified = datetime.now()
+        self.last_modified = datetime.now().replace(tzinfo=utc)
         super(Procedure, self).save(*args, **kwargs)
 
     #SUB_BLOCK: Links to other Procedures

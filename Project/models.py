@@ -5,6 +5,7 @@ from datetime import datetime, date
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.utils import IntegrityError
+from django.utils.timezone import utc
 
 """ Internal Support """
 from Control.choice_lists import FUNCTIONAL_DESIGNATIONS, SIZE_DESIGNATIONS
@@ -50,5 +51,5 @@ class Project(models.Model):
         """
         Time tracks changes via save over-ride.
         """
-        self.last_modified = datetime.now()
+        self.last_modified = datetime.now().replace(tzinfo=utc)
         super(Project, self).save(*args, **kwargs)

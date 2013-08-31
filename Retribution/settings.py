@@ -123,6 +123,9 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     
+    # Third Party
+    'pytz',
+    
     # Internal Packages
     'Component',
     'Control',
