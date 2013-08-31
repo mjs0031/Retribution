@@ -2,11 +2,10 @@
 # Not Applicable
 
 """ Django Package Support """
-# Not Applicable
+from django.core.exceptions import ValidationError
 
 """ Internal imports """
-# INLINE IMPORTS --> Circular dependency avoidance when syncing DB
-
+# Not Applicable
 
 """
 
@@ -14,7 +13,7 @@
  
  Author(s)   : Matthew J Swann     
  Version     : 1.0
- Last Update : 2013-08-06
+ Last Update : 2013-08-31
  Update by   : Matthew J Swann
  
 """

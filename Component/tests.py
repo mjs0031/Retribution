@@ -3,9 +3,13 @@
 
 """ Django Support """
 from django.test import TestCase
+from django.core.exceptions import ValidationError
 
 """ Internal Support """
-# Not Applicable
+from Component.models import (Data, Export, Import, Procedure,
+                              Metadata)
+from Component.validators import (_validate_data, _validate_export,
+    _validate_import, _validate_metadata, _validate_procedure)
 
 
 """
@@ -13,7 +17,7 @@ from django.test import TestCase
  
  Author(s)   : Matthew J Swann     
  Version     : 1.0
- Last Update : 2013-08-06
+ Last Update : 2013-08-31
  Update by   : Matthew J Swann
 
  
@@ -28,10 +32,10 @@ from django.test import TestCase
 """
 
 class Test(TestCase):
-    fixtures = [
+    #fixtures = [
                 #'Testing/fixtures/procedure_testdata.json',
                 #'Testing/fixtures/data_testdata.json',    
-                ]
+    #            ]
 
 
     """
@@ -84,8 +88,14 @@ class Test(TestCase):
       VALIDATORS
      }
      """#BLOCK: Validators
-    def test_validator_00_00_00_get_x_y_z(self):
-        pass 
+    def test_validator_10_00_00_data(self):
+        current = Data.objects.create(
+                    data_id = '0400 4000',              
+                        )
+        try:
+            _validate_data(current)
+        except ValidationError:
+            self.fail('failed to validate data')
 
 
     """
