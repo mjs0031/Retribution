@@ -16,7 +16,7 @@ from Component.validators import _validate_procedure
  
  Author(s)   : Matthew J Swann     
  Version     : 1.0
- Last Update : 2013-08-06
+ Last Update : 2013-08-31
  Update by   : Matthew J Swann
  
 """
@@ -31,11 +31,11 @@ class Data(models.Model):
     """
     # Keyed Fields
     calling_functions = models.ManyToManyField('Component.Procedure', related_name='data_i_manipulate', 
-                                               null=True, blank=True, verbose_name='Calling Functions')
+                                               blank=True, verbose_name='Calling Functions')
     # Natural Fields
-    data_id           = models.CharField(max_length=10, unique=True, blank=True, default='', verbose_name='Data ID')
-    data_tag          = models.CharField(max_length=20, blank=True, default='', null=True, verbose_name='Data Tag')
-    description       = models.TextField(blank=True, default='', null=True)
+    data_id           = models.CharField(max_length=16, unique=True, verbose_name='Data ID')
+    data_tag          = models.CharField(max_length=32, blank=True,  verbose_name='Data Tag')
+    description       = models.CharField(max_length=256, blank=True)    
     topic             = models.CharField(max_length=1, default='U', choices=FUNCTIONAL_DESIGNATIONS)
     size              = models.CharField(max_length=1, default='', choices=SIZE_DESIGNATIONS)
     last_modified     = models.DateTimeField(null=True, blank=True, verbose_name='Mod Date')
@@ -87,9 +87,9 @@ class Export(models.Model):
      
      Primary Keys naturally installed and maintained by Django.
     """
-    export_id     = models.CharField(max_length=10, unique=True, blank=True, default='', verbose_name='Export ID')
-    export_tag    = models.CharField(max_length=20, blank=True, default='', null=True, verbose_name='Export Tag')
-    description   = models.TextField(blank=True, default='', null=True)
+    export_id     = models.CharField(max_length=16, unique=True, verbose_name='Export ID')
+    export_tag    = models.CharField(max_length=32, blank=True,  verbose_name='Export Tag')
+    description   = models.CharField(max_length=256, blank=True)
     last_modified = models.DateTimeField(null=True, blank=True, verbose_name='Mod Date')
     
     class Meta:
@@ -116,10 +116,10 @@ class Import(models.Model):
      
      Primary Keys naturally installed and maintained by Django.
     """
-    import_id     = models.CharField(max_length=10, unique=True, blank=True, default='', verbose_name='Export ID')
-    import_tag    = models.CharField(max_length=20, blank=True, default='', null=True, verbose_name='Export Tag')
-    library       = models.CharField(max_length=32, blank=True, default='', null=True)
-    description   = models.TextField(blank=True, default='', null=True)
+    import_id     = models.CharField(max_length=16, unique=True,verbose_name='Import ID')
+    import_tag    = models.CharField(max_length=32, blank=True, verbose_name='Import Tag')
+    library       = models.CharField(max_length=32, blank=True)
+    description   = models.CharField(max_length=256, blank=True)
     last_modified = models.DateTimeField(null=True, blank=True, verbose_name='Mod Date')
     
     class Meta:
@@ -147,12 +147,12 @@ class Metadata(models.Model):
      Primary Keys naturally installed and maintained by Django.
     """
     # Keyed Fields
-    component = models.CharField(max_length=16, default=None, null=True, verbose_name='Component Tag')
+    component = models.CharField(max_length=16, verbose_name='Component Tag')
     # Natural Fields
     encrypted                  = models.NullBooleanField(default=None, null=True, verbose_name='Encrypted')
     self_modifying             = models.NullBooleanField(default=None, null=True, verbose_name='Self Modifying')
     self_mod_contained_to_self = models.NullBooleanField(default=None, null=True, verbose_name='Self Modifying - Contained')
-    encryption_type            = models.CharField(max_length=32, null=True, default=None, blank=True)
+    encryption_type            = models.CharField(max_length=32, default='None' , verbose_name='Encryption Type')
     last_modified              = models.DateTimeField(null=True, blank=True, verbose_name='Mod Date')
     
     class Meta:
@@ -186,13 +186,13 @@ class Procedure(models.Model):
     """
     # identifying marker for procedure in connection with PE information itself
     # Unique being true and defaulting to blank string guards against 'use-less' data
-    routine_id        = models.CharField(max_length=10, unique=True, blank=True, default='')
-    routine_tag       = models.CharField(max_length=10, blank=True, default='', null=True)
+    routine_id        = models.CharField(max_length=16, unique=True, verbose_name='Routine ID')
+    routine_tag       = models.CharField(max_length=32, blank=True,  verbose_name='Routine Tag')
     calling_functions = models.ManyToManyField('self', related_name='functions_i_call', 
-                                               null=True, blank=True, verbose_name='Calling Functions')
+                                               blank=True, verbose_name='Calling Functions')
     called_functions  = models.ManyToManyField('self', related_name='functions_calling_me', 
-                                               null=True, blank=True, verbose_name='Called Functions')
-    description       = models.TextField(blank=True, default='', null=True)
+                                               blank=True, verbose_name='Called Functions')
+    description       = models.CharField(max_length=256, blank=True)
     topic             = models.CharField(max_length=1, default='U', choices=FUNCTIONAL_DESIGNATIONS)
     last_modified     = models.DateTimeField(null=True, blank=True, verbose_name='Mod Date')    
     

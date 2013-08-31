@@ -149,4 +149,3 @@ from Project.models import (
 
 admin.site.register(Project, ProjectAdmin)
 
- 

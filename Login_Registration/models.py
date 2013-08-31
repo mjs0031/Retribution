@@ -19,7 +19,7 @@ from Component.validators import _validate_procedure
  
  Author(s)   : Matthew J Swann     
  Version     : 1.0
- Last Update : 2013-08-12
+ Last Update : 2013-08-31
  Update by   : Matthew J Swann
  
 """
@@ -42,7 +42,7 @@ class Profile(models.Model):
     phone            = us_models.PhoneNumberField(blank=True)
     # Control Fields
     is_registered    = models.BooleanField(default=False)
-    activation_key   = models.CharField(max_length=50, blank=True, default='')
+    activation_key   = models.CharField(max_length=50, blank=True)
     date_initialized = models.DateField(default=date.today())
 
     def __unicode__(self):
@@ -68,3 +68,4 @@ class Profile(models.Model):
                 self.activation_key = key
                 self.save()
                 field_set = True
+        
