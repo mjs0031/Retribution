@@ -142,42 +142,72 @@ class Test(TestCase):
             
             
     def test_validator_15_01_00_produce_component_tag(self):
+        current = Data.objects.create(
+            data_id = '0400 4000',              
+                )
         self.fail('incomplete')
 
 
     def test_validator_15_02_00_produce_component_tag(self):
+        current = Import.objects.create(
+                    import_id = '0400 4000',              
+                        )
         self.fail('incomplete')
 
         
     def test_validator_15_03_00_produce_component_tag(self):
+        current = Export.objects.create(
+                    export_id = '0400 4000',              
+                        )
         self.fail('incomplete')
 
         
     def test_validator_15_04_00_produce_component_tag(self):
+        current = Metadata.objects.create(
+                    component = 'E-1',              
+                        )
         self.fail('incomplete')
 
         
     def test_validator_15_05_00_produce_component_tag(self):
+        current = Procedure.objects.create(
+                    routine_id = '0400 4000',               
+                        )
         self.fail('incomplete')
         
         
     def test_validator_20_01_00_process_component_tag(self):
+        current = Data.objects.create(
+            data_id = '0400 4000',              
+                )
         self.fail('incomplete')
 
 
     def test_validator_20_02_00_process_component_tag(self):
+        current = Import.objects.create(
+                    import_id = '0400 4000',              
+                        )
         self.fail('incomplete')
 
         
     def test_validator_20_03_00_process_component_tag(self):
+        current = Export.objects.create(
+                    export_id = '0400 4000',              
+                        )
         self.fail('incomplete')
 
         
     def test_validator_20_04_00_process_component_tag(self):
+        current = Metadata.objects.create(
+                    component = 'E-1',              
+                        )
         self.fail('incomplete')
 
         
     def test_validator_20_05_00_process_component_tag(self):
+        current = Procedure.objects.create(
+                    routine_id = '0400 4000',               
+                        )
         self.fail('incomplete')
         
             
