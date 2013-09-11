@@ -88,7 +88,7 @@ class Test(TestCase):
       VALIDATORS
      }
      """#BLOCK: Validators
-    def test_validator_10_00_00_data(self):
+    def test_validator_10_01_00_data(self):
         current = Data.objects.create(
                     data_id = '0400 4000',              
                         )
@@ -96,6 +96,16 @@ class Test(TestCase):
             _validate_data(current)
         except ValidationError:
             self.fail('failed to validate data')
+            
+
+    def test_validator_10_02_00_import(self):
+        current = Import.objects.create(
+                    data_id = '0400 4000',              
+                        )
+        try:
+            _validate_import(current)
+        except ValidationError:
+            self.fail('failed to validate import')
 
 
     """
