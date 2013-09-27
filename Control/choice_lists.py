@@ -1,5 +1,5 @@
 """ Python Support """
-# Not Applicable
+import pytz
 
 """ Django Support """
 # Not Applicable
@@ -13,7 +13,7 @@
  
  Author(s)   : Matthew J swann     
  Version     : 1.0
- Last Update : 2013-09-11
+ Last Update : 2013-09-26
  Update by   : Matthew J Swann
  
 """
@@ -35,4 +35,20 @@ SIZE_DESIGNATIONS = (
     ('W', 'word'),
     ('X', 'other/array')             
         )
+
+TZINFOS = (
+        ('US/Alaska'),
+        ('US/Aleutian'),
+        ('US/Arizona'),
+        ('US/Central'),
+        ('US/East-Indiana'),
+        ('US/Eastern'),
+        ('US/Hawaii'),
+        ('US/Indiana-Starke'),
+        ('US/Michigan'),
+        ('US/Mountain'),
+        ('US/Pacific'),
+        ('US/Pacific-New'),
+        ('US/Samoa')
+    )
 
