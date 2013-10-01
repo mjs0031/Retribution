@@ -14,7 +14,7 @@ from Control.choice_lists import TZINFOS
  
  Author(s)   : Matthew J swann     
  Version     : 1.0
- Last Update : 2013-09-26
+ Last Update : 2013-09-29
  Update by   : Matthew J Swann
  
 """
@@ -30,10 +30,13 @@ def main():
     for i in TZINFOS:
         
         current = timezone(i)
+        print type(current)
         
         source = current.localize(now)
+        print type(source)
         
         normal = source.astimezone(server)
+        print type(normal)
         
         print current.zone
         print 'now time in THIS timezone :: %s' % (source.strftime(fmt))
